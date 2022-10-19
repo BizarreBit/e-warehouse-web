@@ -1,0 +1,16 @@
+export const path = {
+  dashboard: '/',
+  signin: '/signin',
+  setting: '/settings',
+  toCheck: '/orders/tocheck',
+  toPack: '/orders/topack',
+  toShip: '/orders/toship',
+  return: '/orders/returns',
+  all: '/orders/all',
+  item: '/inventory/items',
+  family: '/inventory/families',
+  group: '/inventory/groups',
+  inbound: '/inventory/inbound',
+  customer: '/customers',
+  shop: '/shops',
+};

@@ -1,14 +1,18 @@
-import { Modal } from 'bootstrap';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import Modal from '../components/ui/Modal';
 
-function SignInPage() {
-  const modalEl = useRef();
-  const [modal, setModal] = useState(null);
+import SigninForm from '../components/auth/SigninForm';
+import SignupForm from '../components/auth/SignupForm';
 
-  useEffect(() => {
-    const modalObj = new Modal(modalEl.current);
-    setModal(modalObj);
-  }, []);
+function SigninPage() {
+  const [signupModal, setSignupModal] = useState(false);
+
+  const openModal = () => {
+    setSignupModal(true);
+  };
+  const closeModal = () => {
+    setSignupModal(false);
+  };
 
   return (
     <div className='container-fluid' style={{ backgroundColor: 'white' }}>
@@ -24,118 +28,31 @@ function SignInPage() {
           </div>
         </div>
         <div className='col-12 col-lg-6 d-flex align-items-center justify-content-center'>
-          <form
+          <div
             className='border border-1 shadow p-3 rounded w-75'
             style={{ maxWidth: '25rem' }}
           >
-            <div className='text-primary fs-4 fw-bold text-center'>Sign in</div>
-            <div className='mt-3'>
-              <input
-                type='text'
-                className='form-control rounded h-13 is-invalid'
-                placeholder='Email'
-              />
-              <div className='invalid-feedback'>feedback</div>
-            </div>
-            <div className='mt-3'>
-              <input
-                type='text'
-                className='form-control rounded h-13 is-invalid'
-                placeholder='Password'
-              />
-              <div className='invalid-feedback'>feedback</div>
-            </div>
-            <div className='mt-3 d-grid'>
-              <button
-                type='submit'
-                className='btn btn-tertiary rounded h-12 fw-bold'
-              >
-                Log In
-              </button>
-            </div>
+            <SigninForm />
+
             <div className='mt-2 text-center'>
               <span className='mx-1'>Don't have an account?</span>
               <button
                 type='button'
                 className='text-primary fw-bold border-0 bg-transparent'
-                data-bs-toggle='modal'
-                data-bs-target='#staticBackdrop'
-                onClick={() => modal.show()}
+                onClick={openModal}
               >
                 Sign up
               </button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div
-        className='modal fade'
-        id='staticBackdrop'
-        data-bs-backdrop='static'
-        data-bs-keyboard='false'
-        tabIndex='-1'
-        aria-labelledby='staticBackdropLabel'
-        aria-hidden='true'
-        ref={modalEl}
-      >
-        <div className='modal-dialog modal-dialog-centered'>
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <h5
-                className='modal-title text-primary fw-bold'
-                id='staticBackdropLabel'
+              <Modal
+                title={'Sign Up'}
+                openState={signupModal}
+                onClose={closeModal}
               >
-                Sign Up
-              </h5>
-              <button
-                type='button'
-                className='btn-close'
-                data-bs-dismiss='modal'
-                aria-label='Close'
-              ></button>
-            </div>
-            <div className='modal-body'>
-              <form className='row gx-2 gy-3 justify-content-center'>
-                <div className='col-6'>
-                  <input
-                    className='form-control'
-                    type='text'
-                    placeholder='First name'
-                  />
-                </div>
-                <div className='col-6'>
-                  <input
-                    className='form-control'
-                    type='text'
-                    placeholder='Last name'
-                  />
-                </div>
-                <div className='col-12'>
-                  <input
-                    className='form-control'
-                    type='text'
-                    placeholder='Email address'
-                  />
-                </div>
-                <div className='col-12'>
-                  <input
-                    className='form-control'
-                    type='text'
-                    placeholder='Password'
-                  />
-                </div>
-                <div className='col-12'>
-                  <input
-                    className='form-control'
-                    type='text'
-                    placeholder='Confirm password'
-                  />
-                </div>
-
-                <button type='submit' className='col-4 btn btn-tertiary'>
-                  Sign up
-                </button>
-              </form>
+                <SignupForm
+                  modalOpenState={signupModal}
+                  closeModal={closeModal}
+                />
+              </Modal>
             </div>
           </div>
         </div>
@@ -144,4 +61,4 @@ function SignInPage() {
   );
 }
 
-export default SignInPage;
+export default SigninPage;

@@ -12,6 +12,8 @@ $body-bg: #edf1f5;
 
 $component-active-bg: $tertiary;
 
+$dropdown-min-width: 8rem;
+
 // 3. Include remainder of required Bootstrap stylesheets
 @import '../node_modules/bootstrap/scss/variables';
 
@@ -45,4 +47,79 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ct-layout {
+  display: grid;
+  font-size: $h3-font-size;
+  grid-template-columns: 7em auto;
+}
+
+.ct-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: $secondary;
+}
+
+.ct-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.ct-sb-logo {
+  text-align: center;
+  padding: 0.25rem;
+  background-color: $primary;
+  color: $body-bg;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+}
+
+.ct-sb-logo:hover {
+  color: $white
+}
+
+.ct-sb-menus {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0;
+  overflow-y: auto;
+  font-size: $h5-font-size;
+  border-top: 1px solid $gray-600;
+}
+
+.ct-sb-menu {
+  border-bottom: 1px solid $gray-600 !important;
+  font-size: 1.25rem;
+  text-align: start;
+  border-radius: 0;
+}
+
+.ct-sb-submenu {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem 0.375rem 1.5rem;
+  text-align: start;
+  border-radius: 0;
+}
+
+.ct-sb-profilelabel {
+  font-size: $h6-font-size;
+  padding: 0.25rem;
+  color: $dark;
+}
+
+.ct-sb-pill {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+}
+
+.ct-sb-username {
+  flex-grow: 1;
+  margin: 0 0.5rem;
+  overflow: clip;
 }
