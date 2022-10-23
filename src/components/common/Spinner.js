@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useWait } from '../contexts/WaitContext';
+import { useWait } from '../../contexts/WaitContext';
 
 function Spinner() {
   const [fail, setFail] = useState(false);

@@ -6,6 +6,7 @@ import { path } from '../config/path';
 import { getAccessToken } from '../services/localStorage';
 import { useWait } from '../contexts/WaitContext';
 import { useEffect } from 'react';
+import SettingPage from '../pages/SettingPage';
 
 function Router() {
   const token = getAccessToken();
@@ -37,7 +38,7 @@ function Router() {
         <>
           <Route path='/' element={<Layout />}>
             <Route path={path.dashboard} element={<div>dashboard</div>} />
-            <Route path={path.setting} element={<div>settings</div>} />
+            <Route path={path.setting} element={<SettingPage />} />
             <Route path={path.toCheck} element={<div>tocheck</div>} />
             <Route path={path.toPack} element={<div>topack</div>} />
             <Route path={path.toShip} element={<div>toship</div>} />
@@ -46,7 +47,7 @@ function Router() {
             <Route path={path.item} element={<div>items</div>} />
             <Route path={path.family} element={<div>families</div>} />
             <Route path={path.group} element={<div>groups</div>} />
-            <Route path={path.inbound} element={<div>groups</div>} />
+            <Route path={path.inbound} element={<div>inbound</div>} />
             <Route path={path.customer} element={<div>customers</div>} />
             <Route path={path.shop} element={<div>shops</div>} />
           </Route>

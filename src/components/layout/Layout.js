@@ -5,7 +5,7 @@ function Layout() {
   return (
     <div className='ct-layout'>
       <Sidebar />
-      <main>
+      <main className='p-4 fs-6'>
         <Outlet />
       </main>
     </div>

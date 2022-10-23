@@ -15,7 +15,7 @@ function Toaster() {
 
   return (
     <div
-      className='toast-container position-absolute p-3 start-50 bottom-0 translate-middle-x'
+      className='toast-container position-fixed p-3 start-50 bottom-0 translate-middle-x'
       style={{ zIndex: 2000 }}
     >
       <div

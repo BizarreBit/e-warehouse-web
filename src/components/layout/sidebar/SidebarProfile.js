@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import ImageIcon from '../../../common/ImageIcon';
+import ImageIcon from '../../../components/common/ImageIcon';
 import { useAuth } from '../../../contexts/AuthContext';
 import { path } from '../../../config/path';
 

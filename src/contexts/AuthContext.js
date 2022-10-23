@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getMeApi, signinApi, signupApi } from '../api/auth';
+import { signinApi, signupApi, changeEmailApi, changePasswordApi } from '../api/auth';
+import { getMeApi } from '../api/user';
 import {
   getAccessToken,
   removeAccessToken,
@@ -55,8 +56,22 @@ function AuthContextProvider({ children }) {
     setUser(null);
   };
 
+  const changeEmail = async (input, onSuccess) => {
+    await changeEmailApi(input);
+    onSuccess && onSuccess();
+    await new Promise(resolve => setTimeout(resolve, 500))
+    signout()
+  }
+
+  const changePassword = async (input, onSuccess) => {
+    await changePasswordApi(input);
+    onSuccess && onSuccess();
+    await new Promise(resolve => setTimeout(resolve, 500))
+    signout()
+  }
+
   return (
-    <AuthContext.Provider value={{ user, fetchMe, signup, signin, signout }}>
+    <AuthContext.Provider value={{ user, fetchMe, signup, signin, signout, changeEmail, changePassword }}>
       {children}
     </AuthContext.Provider>
   );
