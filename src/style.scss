@@ -78,7 +78,7 @@ body {
 }
 
 .ct-sb-logo:hover {
-  color: $white
+  color: $white;
 }
 
 .ct-sb-menus {
@@ -122,4 +122,86 @@ body {
   flex-grow: 1;
   margin: 0 0.5rem;
   overflow: clip;
+}
+
+.ct-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  font-weight: bold;
+  font-size: $h4-font-size;
+  color: $gray-600 !important;
+
+  white-space: nowrap;
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.ct-breadcrumb li {
+  white-space: nowarp;
+}
+
+.ct-breadcrumb li:last-child {
+  color: $dark;
+}
+
+.ct-breadcrumb li + li::before {
+  font: var(--fa-font-solid);
+  content: '\f105';
+  font-size: 0.75em;
+  color: $gray-600;
+  padding: 0 0.5rem;
+}
+
+.ct-breadcrumb li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ct-between-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ct-between-wrap * {
+  vertical-align: middle;
+}
+
+.ct-flex-items {
+  display: flex;
+  padding: 0.25rem 0;
+}
+
+.ct-flex-items * {
+  margin: 0.25rem;
+}
+
+.ct-mn-paginator select {
+  outline: none;
+  border: none;
+}
+
+.ct-mini-icon {
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.ct-mini-icon.inactive {
+  color: $gray-600;
+  cursor: default;
+}
+
+.ct-tb-header * {
+  vertical-align: middle;
+}
+
+.ct-icon {
+  padding: 0 0.5rem;
+  cursor: pointer;
 }

@@ -7,6 +7,7 @@ import { getAccessToken } from '../services/localStorage';
 import { useWait } from '../contexts/WaitContext';
 import { useEffect } from 'react';
 import SettingPage from '../pages/SettingPage';
+import GroupPage from '../pages/GroupPage';
 
 function Router() {
   const token = getAccessToken();
@@ -46,7 +47,7 @@ function Router() {
             <Route path={path.all} element={<div>all</div>} />
             <Route path={path.item} element={<div>items</div>} />
             <Route path={path.family} element={<div>families</div>} />
-            <Route path={path.group} element={<div>groups</div>} />
+            <Route path={path.group} element={<GroupPage />} />
             <Route path={path.inbound} element={<div>inbound</div>} />
             <Route path={path.customer} element={<div>customers</div>} />
             <Route path={path.shop} element={<div>shops</div>} />
